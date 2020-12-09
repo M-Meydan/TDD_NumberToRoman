@@ -1,0 +1,92 @@
+﻿using NUnit.Framework;
+using TDD_NumberToRoman.Converters;
+
+namespace TDD_NumberToRoman.UnitTest
+{
+    [TestFixture(Category = "Roman To Number Converter Tests")]
+    public class RomanToNumberConverterTests //: GlobalTestSetup
+    {
+        [Test(Author = "Muhsin Meydan")]
+        # region TestCases
+        [TestCase("I", ExpectedResult = 1)]
+        [TestCase("II", ExpectedResult = 2)]
+        [TestCase("III", ExpectedResult = 3)]
+        [TestCase("IV", ExpectedResult = 4)]
+        [TestCase("V", ExpectedResult = 5)]
+        [TestCase("VI", ExpectedResult = 6)]
+        [TestCase("VII", ExpectedResult = 7)]
+        [TestCase("VIII", ExpectedResult = 8)]
+        [TestCase("IX", ExpectedResult = 9)]
+        [TestCase("X", ExpectedResult = 10)]
+        [TestCase("XI", ExpectedResult = 11)]
+        [TestCase("XIV", ExpectedResult = 14)]
+        [TestCase("XV", ExpectedResult = 15)]
+        [TestCase("XIX", ExpectedResult = 19)]
+        [TestCase("XX", ExpectedResult = 20)]
+        [TestCase("XXI", ExpectedResult = 21)]
+        [TestCase("XXIV", ExpectedResult = 24)]
+        [TestCase("XXVIII", ExpectedResult = 28)]
+        [TestCase("XXIX", ExpectedResult = 29)]
+        [TestCase("XXX", ExpectedResult = 30)]
+        [TestCase("XXXIV", ExpectedResult = 34)]
+        [TestCase("XXXIX", ExpectedResult = 39)]
+        [TestCase("XL", ExpectedResult = 40)]
+        [TestCase("XLIV", ExpectedResult = 44)]
+        [TestCase("XLIX", ExpectedResult = 49)]
+        [TestCase("L", ExpectedResult = 50)]
+        [TestCase("LIV", ExpectedResult = 54)]
+        [TestCase("LIX", ExpectedResult = 59)]
+        [TestCase("LX", ExpectedResult = 60)]
+        [TestCase("LXX", ExpectedResult = 70)]
+        [TestCase("LXXX", ExpectedResult = 80)]
+        [TestCase("XC", ExpectedResult = 90)]
+        [TestCase("C", ExpectedResult = 100)]
+        [TestCase("CIV", ExpectedResult = 104)]
+        [TestCase("CXLIV", ExpectedResult = 144)]
+        [TestCase("CLIX", ExpectedResult = 159)]
+        [TestCase("CXCIX", ExpectedResult = 199)]
+        [TestCase("DCCLXXVII", ExpectedResult = 777)]
+        [TestCase("CC", ExpectedResult = 200)]
+        [TestCase("CCXCIX", ExpectedResult = 299)]
+        [TestCase("CMXCIX", ExpectedResult = 999)]
+        [TestCase("M", ExpectedResult = 1000)]
+        [TestCase("MCMXCIV", ExpectedResult = 1994)]
+        [TestCase("MMCMXCIV", ExpectedResult = 2994)]
+        [TestCase("MMMMMMMMMCMXCIX", ExpectedResult = 9999)]
+        [TestCase("MMMMMMMMMMCMXCIX", ExpectedResult = 10999)]
+        [TestCase("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMCMXCIX", ExpectedResult = 99999)]
+        [TestCase("XLII", ExpectedResult = 42)]
+        [TestCase("MMXIII", ExpectedResult = 2013)]
+        [TestCase("MXI", ExpectedResult = 1011)]
+        [TestCase("MCDXCIX", ExpectedResult = 1499)]
+        [TestCase("MMXXII", ExpectedResult = 2022)]
+        [TestCase("V", ExpectedResult = 5)]
+        [TestCase("VI", ExpectedResult = 6)]
+        [TestCase("CX", ExpectedResult = 110)]
+        [TestCase("CCCLXXV", ExpectedResult = 375)]
+        [TestCase("MD", ExpectedResult = 1500)]
+        [TestCase("MDLXXV", ExpectedResult = 1575)]
+        [TestCase("MDCL", ExpectedResult = 1650)]
+        [TestCase("MDCCXXV", ExpectedResult = 1725)]
+        [TestCase("MDCCC", ExpectedResult = 1800)]
+        [TestCase("MDCCCLXXV", ExpectedResult = 1875)]
+        [TestCase("MCML", ExpectedResult = 1950)]
+        [TestCase("MMXXV", ExpectedResult = 2025)]
+        [TestCase("MMC", ExpectedResult = 2100)]
+        [TestCase("MMCLXXV", ExpectedResult = 2175)]
+        [TestCase("MMCCL", ExpectedResult = 2250)]
+        [TestCase("MMCCCXXV", ExpectedResult = 2325)]
+        [TestCase("MMCD", ExpectedResult = 2400)]
+        [TestCase("MMCDLXXV", ExpectedResult = 2475)]
+        [TestCase("MMDL", ExpectedResult = 2550)]
+        [TestCase("MMMMMMMM", ExpectedResult = 8000)]
+        [TestCase("MMMMMMMMIV", ExpectedResult = 8004)]
+        #endregion 
+        public int Convert(string romanNumber)
+        {
+            var result = new RomanToNumberConverter(romanNumber).Convert();
+
+            return result;
+        }
+    }
+}
